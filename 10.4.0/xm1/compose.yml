@@ -1,0 +1,127 @@
+include:
+  - path:
+      - ./compose.build.sitecore.yml
+      - ./compose.build.sitecore.override.yml
+
+services:
+  traefik:
+    image: ${TRAEFIK_IMAGE}
+    isolation: ${TRAEFIK_ISOLATION}
+    command:
+      - "--ping"
+      - "--api.insecure=true"
+      - "--providers.docker.endpoint=npipe:////./pipe/docker_engine"
+      - "--providers.docker.exposedByDefault=false"
+      - "--providers.file.directory=C:/etc/traefik/config/dynamic"
+      - "--entryPoints.web.address=:80"
+      - "--entryPoints.websecure.address=:443"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8079:8080"
+    healthcheck:
+      test: ["CMD", "traefik", "healthcheck", "--ping"]
+    volumes:
+      - source: \\.\pipe\docker_engine\
+        target: \\.\pipe\docker_engine\
+        type: npipe
+      - ./docker/data/traefik:C:/etc/traefik
+
+  mssql:
+    image: ${SITECORE_DOCKER_REGISTRY}nonproduction/mssql-developer:${SQL_VERSION}
+    isolation: ${DEFAULT_ISOLATION}
+    environment:
+      SA_PASSWORD: ${SQL_SA_PASSWORD}
+      ACCEPT_EULA: "Y"
+    volumes:
+      - ${LOCAL_DATA_PATH}\mssql:C:\data
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 2GB
+
+  mssql-init:
+    image: ${SITECORE_DOCKER_REGISTRY}sitecore-xm1-mssql-init:${SITECORE_VERSION}
+    isolation: ${DEFAULT_ISOLATION}
+    depends_on:
+      mssql:
+        condition: service_healthy
+    environment:
+      SQL_SERVER: mssql
+      SQL_ADMIN_LOGIN: ${SQL_SA_LOGIN}
+      SQL_ADMIN_PASSWORD: ${SQL_SA_PASSWORD}
+      SQL_DATABASE_PREFIX: ${SQL_DATABASE_PREFIX}
+      SITECORE_ADMIN_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
+      POST_DEPLOYMENT_WAIT_PERIOD: 300
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "powershell",
+          "-Command",
+          "if ([System.Environment]::GetEnvironmentVariable('DatabasesDeploymentStatus', 'Machine') -eq 'Complete') { exit 0 } else { exit 1}",
+        ]
+      start_period: 300s
+      interval: 5s
+
+  solr:
+    image: ${SITECORE_DOCKER_REGISTRY}nonproduction/solr:${SOLR_VERSION}
+    isolation: ${DEFAULT_ISOLATION}
+    volumes:
+      - ${LOCAL_DATA_PATH}\solr:C:\data
+    environment:
+      SOLR_MODE: solrcloud
+      SOLR_LOG_LEVEL: WARN
+      SOLR_HEAP: 1500M
+      SOLR_JAVA_MEM: -Xms1500M -Xmx1500M
+      SOLR_OPTS: -Dlog4j2.formatMsgNoLookups=true
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 2GB
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "powershell",
+          "-Command",
+          "try { $$statusCode = (iwr http://localhost:8983/solr/admin/cores?action=STATUS -UseBasicParsing).StatusCode; if ($$statusCode -eq 200) { exit 0 } else { exit 1} } catch { exit 1 }",
+        ]
+
+  solr-init:
+    image: ${SITECORE_DOCKER_REGISTRY}sitecore-xm1-solr-init:${SITECORE_VERSION}
+    isolation: ${DEFAULT_ISOLATION}
+    environment:
+      SITECORE_SOLR_CONNECTION_STRING: http://solr:8983/solr
+      SOLR_CORE_PREFIX_NAME: ${SOLR_CORE_PREFIX_NAME}
+    depends_on:
+      solr:
+        condition: service_healthy
+
+  id:
+    isolation: ${DEFAULT_ISOLATION}
+    image: ${SITECORE_DOCKER_REGISTRY}sitecore-id7:${SITECORE_VERSION}
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:C:\license:r
+    environment:
+      SITECORE_LICENSE_LOCATION: C:\license\license.xml
+      Sitecore_Sitecore__IdentityServer__SitecoreMemberShipOptions__ConnectionString: Data Source=${SQL_SERVER};Initial Catalog=${SQL_DATABASE_PREFIX}.Core;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD}
+      Sitecore_Sitecore__IdentityServer__AccountOptions__PasswordRecoveryUrl: https://${CM_HOST_PLATFORM}/sitecore/login?rc=1
+      Sitecore_Sitecore__IdentityServer__Clients__PasswordClient__ClientSecrets__ClientSecret1: ${SITECORE_IDSECRET}
+      Sitecore_Sitecore__IdentityServer__Clients__DefaultClient__AllowedCorsOrigins__AllowedCorsOriginsGroup1: https://${CM_HOST_PLATFORM}
+      Sitecore_Sitecore__IdentityServer__CertificateRawData: ${SITECORE_ID_CERTIFICATE}
+      Sitecore_Sitecore__IdentityServer__PublicOrigin: https://${ID_HOST}
+      Sitecore_Sitecore__IdentityServer__CertificateRawDataPassword: ${SITECORE_ID_CERTIFICATE_PASSWORD}
+    healthcheck:
+      test: ["CMD", "pwsh", "-command", "C:/Healthchecks/Healthcheck.ps1"]
+      timeout: 300s
+    depends_on:
+      mssql-init:
+        condition: service_healthy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.id-secure.entrypoints=websecure"
+      - "traefik.http.routers.id-secure.rule=Host(`${ID_HOST}`)"
+      - "traefik.http.routers.id-secure.tls=true"
