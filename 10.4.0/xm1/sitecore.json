@@ -10,7 +10,7 @@
   ],
   "serialization": {
     "defaultMaxRelativeItemPathLength": 100,
-    "defaultModuleRelativeSerializationPath": "serialization",
+    "defaultModuleRelativeSerializationPath": "ser",
     "removeOrphansForRoles": true,
     "removeOrphansForUsers": true,
     "continueOnItemFailure": false,

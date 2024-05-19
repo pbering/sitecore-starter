@@ -23,5 +23,6 @@ data/traefik/*
 !data/traefik/config/
 !data/traefik/config/dynamic/
 
-data/publish/platform/*
-#!data/publish/platform/.gitkeep
+publish/platform/*
+!publish/platform/
+!publish/platform/.gitkeep
