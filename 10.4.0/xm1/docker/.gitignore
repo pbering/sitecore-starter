@@ -1,16 +1,21 @@
 data/cm/logs/*
+!data/cm/logs/
 !data/cm/logs/.gitkeep
 
 data/cm/mediacache/*
+!data/cm/mediacache/
 !data/cm/mediacache/.gitkeep
 
 data/cm/packages/*
+!data/cm/packages/
 !data/cm/packages/.gitkeep
 
-data/mssql/*
-!data/mssql/.gitkeep
+data/mssql/packages/*
+!data/mssql/packages/
+!data/mssql/packages/.gitkeep
 
 data/solr/*
+!data/solr/
 !data/solr/.gitkeep
 
 data/traefik/*
@@ -19,4 +24,4 @@ data/traefik/*
 !data/traefik/config/dynamic/
 
 data/publish/platform/*
-!data/publish/platform/.gitkeep
+#!data/publish/platform/.gitkeep
