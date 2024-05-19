@@ -6,7 +6,7 @@ include:
 services:
   traefik:
     image: ${TRAEFIK_IMAGE}
-    isolation: ${TRAEFIK_ISOLATION}
+    isolation: ${ISOLATION}
     command:
       - "--ping"
       - "--api.insecure=true"
@@ -26,10 +26,15 @@ services:
         target: \\.\pipe\docker_engine\
         type: npipe
       - ./docker/data/traefik:C:/etc/traefik
+    depends_on:
+      id:
+        condition: service_started
+      cm:
+        condition: service_started
 
   mssql:
     image: ${SITECORE_DOCKER_REGISTRY}nonproduction/mssql-developer:${SQL_VERSION}
-    isolation: ${DEFAULT_ISOLATION}
+    isolation: ${ISOLATION}
     environment:
       SA_PASSWORD: ${SQL_SA_PASSWORD}
       ACCEPT_EULA: "Y"
@@ -43,7 +48,7 @@ services:
 
   mssql-init:
     image: ${SITECORE_DOCKER_REGISTRY}sitecore-xm1-mssql-init:${SITECORE_VERSION}
-    isolation: ${DEFAULT_ISOLATION}
+    isolation: ${ISOLATION}
     depends_on:
       mssql:
         condition: service_healthy
@@ -67,7 +72,7 @@ services:
 
   solr:
     image: ${SITECORE_DOCKER_REGISTRY}nonproduction/solr:${SOLR_VERSION}
-    isolation: ${DEFAULT_ISOLATION}
+    isolation: ${ISOLATION}
     volumes:
       - ${LOCAL_DATA_PATH}\solr:C:\data
     environment:
@@ -92,7 +97,7 @@ services:
 
   solr-init:
     image: ${SITECORE_DOCKER_REGISTRY}sitecore-xm1-solr-init:${SITECORE_VERSION}
-    isolation: ${DEFAULT_ISOLATION}
+    isolation: ${ISOLATION}
     environment:
       SITECORE_SOLR_CONNECTION_STRING: http://solr:8983/solr
       SOLR_CORE_PREFIX_NAME: ${SOLR_CORE_PREFIX_NAME}
@@ -101,8 +106,8 @@ services:
         condition: service_healthy
 
   id:
-    isolation: ${DEFAULT_ISOLATION}
     image: ${SITECORE_DOCKER_REGISTRY}sitecore-id7:${SITECORE_VERSION}
+    isolation: ${ISOLATION}
     volumes:
       - ${HOST_LICENSE_FOLDER}:C:\license:r
     environment:

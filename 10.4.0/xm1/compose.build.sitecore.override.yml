@@ -1,5 +1,6 @@
 services:
   cm:
+    isolation: ${ISOLATION}
     volumes:
       - ${LOCAL_DEPLOY_PATH}\platform:C:\deploy
       - ${LOCAL_DATA_PATH}\cm\logs:C:\inetpub\wwwroot\App_Data\logs
@@ -31,14 +32,10 @@ services:
       Sitecore_AppSettings_env:define: "Development"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.middlewares.force-STS-Header.headers.forceSTSHeader=true"
-      - "traefik.http.middlewares.force-STS-Header.headers.stsSeconds=31536000"
       - "traefik.http.routers.cm-secure.entrypoints=websecure"
       - "traefik.http.routers.cm-secure.rule=Host(`${CM_HOST_PLATFORM}`)"
       - "traefik.http.routers.cm-secure.tls=true"
-      - "traefik.http.routers.cm-secure.middlewares=force-STS-Header"
     entrypoint: powershell.exe -Command "& C:/tools/entrypoints/iis/Development.ps1"
-    isolation: ${DEFAULT_ISOLATION}
     depends_on:
       mssql:
         condition: service_healthy
