@@ -29,7 +29,7 @@ services:
           "CMD",
           "powershell",
           "-Command",
-          "if ([System.Environment]::GetEnvironmentVariable('DatabasesDeploymentStatus', 'Machine') -eq 'Complete') { exit 0 } else { exit 1}",
+          "if ([System.Environment]::GetEnvironmentVariable('DatabasesDeploymentStatus', 'Machine') -eq 'Complete') { exit 0 } else { exit 1 }",
         ]
       start_period: 300s
       interval: 5s
