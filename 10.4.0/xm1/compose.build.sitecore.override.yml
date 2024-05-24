@@ -11,7 +11,7 @@ services:
       resources:
         limits:
           cpus: "2"
-          memory: 2GB
+          memory: 3GB
 
   mssql-init:
     image: ${SITECORE_DOCKER_REGISTRY}sitecore-xm1-mssql-init:${SITECORE_VERSION}
@@ -45,14 +45,14 @@ services:
     environment:
       SOLR_MODE: solrcloud
       SOLR_LOG_LEVEL: WARN
-      SOLR_HEAP: 1500M
-      SOLR_JAVA_MEM: -Xms1500M -Xmx1500M
+      SOLR_HEAP: 2000M
+      SOLR_JAVA_MEM: -Xms2000M -Xmx2000M
       SOLR_OPTS: -Dlog4j2.formatMsgNoLookups=true
     deploy:
       resources:
         limits:
           cpus: "2"
-          memory: 2GB
+          memory: 3GB
     healthcheck:
       test:
         [
@@ -61,6 +61,12 @@ services:
           "-Command",
           "try { $$statusCode = (iwr http://localhost:8983/solr/admin/cores?action=STATUS -UseBasicParsing).StatusCode; if ($$statusCode -eq 200) { exit 0 } else { exit 1} } catch { exit 1 }",
         ]
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.solr.entrypoints=websecure"
+      - "traefik.http.routers.solr.rule=Host(`${SOLR_HOST}`)"
+      - "traefik.http.routers.solr.tls=true"
+      - "traefik.http.services.solr.loadbalancer.server.port=8983"
 
   solr-init:
     image: ${SITECORE_DOCKER_REGISTRY}sitecore-xm1-solr-init:${SITECORE_VERSION}

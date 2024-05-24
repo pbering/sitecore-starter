@@ -120,6 +120,7 @@ Write-Host "Adding Windows hosts file entries..." -ForegroundColor Green
 Add-HostsEntry "cm-platform.$ProjectName.localhost"
 Add-HostsEntry "cd-platform.$ProjectName.localhost"
 Add-HostsEntry "id.$ProjectName.localhost"
+Add-HostsEntry "solr.$ProjectName.localhost"
 
 ###############################
 # Populate the environment file
@@ -132,12 +133,11 @@ if ($InitEnv)
     # HOST_LICENSE_FOLDER
     Set-EnvFileVariable "HOST_LICENSE_FOLDER" -Value $LicenseXmlPath
 
-    # CM_HOSTS
+    # HOSTS
     Set-EnvFileVariable "CM_HOST_PLATFORM" -Value "cm-platform.$ProjectName.localhost"
     Set-EnvFileVariable "CD_HOST_PLATFORM" -Value "cm-platform.$ProjectName.localhost"
-
-    # ID_HOST
     Set-EnvFileVariable "ID_HOST" -Value "id.$ProjectName.localhost"
+    Set-EnvFileVariable "SOLR_HOST" -Value "solr.$ProjectName.localhost"
 
     # TELERIK_ENCRYPTION_KEY = random 64-128 chars
     Set-EnvFileVariable "TELERIK_ENCRYPTION_KEY" -Value (Get-SitecoreRandomString 128 -DisallowSpecial)
