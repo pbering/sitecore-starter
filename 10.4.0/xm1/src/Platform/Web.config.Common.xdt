@@ -2,7 +2,7 @@
 
 <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
   <appSettings>
-    <add xdt:Transform="Insert" key="env:define" value="" />
+    <add xdt:Transform="Insert" key="env:define" value="Production" />
   </appSettings>
 
   <system.web>
