@@ -6,9 +6,7 @@
 - Docker Desktop or Docker engine
 - Sitecore license file
 
-## Running
-
-Run:
+## Usage
 
 1. `.\init.ps1 -License C:\license\license.xml -AdminPassword b`
 1. `dotnet tool restore`
