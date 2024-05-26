@@ -8,9 +8,11 @@
 
 ## Running
 
-1. Run `.\init.ps1 -License C:\license\license.xml -AdminPassword b`
-1. Run `dotnet tool restore`
-1. Run `nuget restore && msbuild /v:m /p:Configuration=Debug /p:DeployOnBuild=true /p:PublishProfile=DockerPublish` or publish `Platform` project from Visual Studio.
-1. Run `docker compose up -d --build`
-1. Run `dotnet sitecore login --authority https://id.ss1040xm1.localhost --cm https://cm-platform.ss1040xm1.localhost --allow-write true`
-1. Run `dotnet sitecore index schema-populate`
+Run:
+
+1. `.\init.ps1 -License C:\license\license.xml -AdminPassword b`
+1. `dotnet tool restore`
+1. `nuget restore && msbuild /v:m /p:Configuration=Debug /p:DeployOnBuild=true /p:PublishProfile=DockerPublish` or publish `Platform` project from Visual Studio.
+1. `docker compose up -d --build`
+1. `dotnet sitecore login --authority https://id.ss1040xm1.localhost --cm https://cm-platform.ss1040xm1.localhost --allow-write true`
+1. `dotnet sitecore index schema-populate`
