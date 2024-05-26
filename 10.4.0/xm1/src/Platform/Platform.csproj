@@ -69,7 +69,7 @@
     <Content Include="App_Config\Environment\Development.config" />
     <Content Include="App_Config\Environment\Production.config" />
     <Content Include="App_Config\Environment\Staging.config" />
-    <Content Include="App_Config\DefaultPerformanceTweaks.config" />
+    <Content Include="App_Config\Include\DefaultPerformanceTweaks.config" />
     <None Include="Platform.wpp.targets" />
     <Content Include="Web.config.CM.xdt" />
     <Content Include="Web.config.Common.xdt" />
