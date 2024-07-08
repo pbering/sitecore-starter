@@ -7,6 +7,5 @@
 
   <system.web>
     <compilation optimizeCompilations="true" xdt:Transform="SetAttributes" />
-    <httpcookies httponlycookies="true" requiressl="true" lockitem="true"/>
   </system.web>
 </configuration>

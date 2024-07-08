@@ -9,7 +9,7 @@ Opinionated starter kits (as in copy-and-customize) with some batteries included
 1. Central Package Management (CPM) instead of legacy Central Package Versioning (CPV)
 1. NuGet Package Source Mapping for better security and faster package restore
 1. NuGet lock files
-1. Builds solution *outside* Docker for faster and also free builds using public build agents/runners
+1. Builds solution *outside* Docker for faster and free builds using public build agents/runners
 1. Predefined environments for patching, ie "Development", "Staging", "Production"
 1. Optimized Sitecore config
 1. Traefik v3
