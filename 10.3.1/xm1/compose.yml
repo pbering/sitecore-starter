@@ -1,0 +1,32 @@
+include:
+  - path:
+      - ./compose.build.sitecore.yml
+      - ./compose.build.sitecore.override.yml
+
+services:
+  traefik:
+    image: ${TRAEFIK_IMAGE}
+    isolation: ${ISOLATION}
+    command:
+      - "--ping"
+      - "--api.insecure=true"
+      - "--providers.docker.endpoint=npipe:////./pipe/docker_engine"
+      - "--providers.docker.exposedByDefault=false"
+      - "--providers.file.directory=C:/etc/traefik/config/dynamic"
+      - "--entryPoints.web.address=:80"
+      - "--entryPoints.websecure.address=:443"
+    ports:
+      - "443:443"
+      - "8079:8080"
+    healthcheck:
+      test: ["CMD", "traefik", "healthcheck", "--ping"]
+    volumes:
+      - source: \\.\pipe\docker_engine\
+        target: \\.\pipe\docker_engine\
+        type: npipe
+      - ./docker/data/traefik:C:/etc/traefik
+    depends_on:
+      id:
+        condition: service_started
+      cm:
+        condition: service_started

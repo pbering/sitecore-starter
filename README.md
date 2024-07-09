@@ -8,7 +8,7 @@ Opinionated starter kits (as in copy-and-customize) with some batteries included
 1. Compose includes for easier CI build parallelization
 1. Central Package Management (CPM) instead of legacy Central Package Versioning (CPV)
 1. NuGet Package Source Mapping for better security and faster package restore
-1. NuGet lock files
+1. NuGet lock files for stable restores across machines
 1. Builds solution *outside* Docker for faster and free builds using public build agents/runners
 1. Predefined environments for patching, ie "Development", "Staging", "Production"
 1. Optimized Sitecore config
@@ -16,6 +16,7 @@ Opinionated starter kits (as in copy-and-customize) with some batteries included
 
 ## Changelog
 
-### 2024-05-24
+### 2024-07-09
 
 - [Added] Sitecore 10.4.0 XM
+- [Added] Sitecore 10.3.1 XM
