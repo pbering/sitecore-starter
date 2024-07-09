@@ -10,6 +10,7 @@ Opinionated starter kits (as in copy-and-customize) with some batteries included
 1. NuGet Package Source Mapping for better security and faster package restore
 1. NuGet lock files for stable restores across machines
 1. Builds solution *outside* Docker for faster and free builds using public build agents/runners
+1. Process isolation and ltsc2022 by default
 1. Predefined environments for patching, ie "Development", "Staging", "Production"
 1. Optimized Sitecore config
 1. Traefik v3
