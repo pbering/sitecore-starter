@@ -17,6 +17,10 @@ Opinionated starter kits (as in copy-and-customize) with some batteries included
 
 ## Changelog
 
+### 2024-10-29
+
+- [Changed] Updated Sitecore CLI to latest v6.0.23
+
 ### 2024-07-09
 
 - [Added] Sitecore 10.4.0 XM
