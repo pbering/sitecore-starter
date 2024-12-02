@@ -11,5 +11,6 @@
     <PackageVersion Include="Sitecore.Assemblies.Platform" Version="$(PlatformVersion)" />
     <PackageVersion Include="Sitecore.Kernel" Version="$(PlatformVersion)" />
     <PackageVersion Include="Sitecore.Mvc" Version="$(PlatformVersion)" />
+    <PackageVersion Include="System.Security.Cryptography.Xml" Version="[8.0.2]" />
   </ItemGroup>
 </Project>

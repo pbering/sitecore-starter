@@ -4,42 +4,47 @@
     ".NETFramework,Version=v4.8": {
       "Sitecore.Assemblies.Platform": {
         "type": "Direct",
-        "requested": "[10.4.0, 10.4.0]",
-        "resolved": "10.4.0",
-        "contentHash": "Cz8qcDGPzGBzXuu3DgqiWRzkASN3eGCpW73W2MAk8b0E1A3zknShArsXHYg0FKiKn1D1Tm/SOA7ldKSgw35HvQ=="
+        "requested": "[10.3.1, 10.3.1]",
+        "resolved": "10.3.1",
+        "contentHash": "bncPxqYBL0Yb72nb9j1vI6o9+hvqFYUr60bivwcNNVuJLPc8AufK07ZSsDF06ltuM9cD/XKlbmrVas7tU77jvw=="
       },
       "Sitecore.Kernel": {
         "type": "Direct",
-        "requested": "[10.4.0, 10.4.0]",
-        "resolved": "10.4.0",
-        "contentHash": "wS5aBvIihVH+5G99qa0cUsnNsA9A1T46sLDhE+pVVECkzmaUZiIyMQJLa4/sCgzt3o9VM9pVGd62Sx1oOIomog==",
+        "requested": "[10.3.1, 10.3.1]",
+        "resolved": "10.3.1",
+        "contentHash": "cGU59NxctYsL6Qcku+wcsR6ksO7yRP4iOQzjKzwwE+fFVLb73LX4zUetrxrJM3/MZTqFszM6y9UEdIZcBf4+8g==",
         "dependencies": {
-          "Sitecore.Data.ResourceItems.ProtobufNet": "10.4.0",
+          "Sitecore.Data.ResourceItems.ProtobufNet": "10.3.1",
           "Sitecore.Framework.Data.Blobs": "3.0.1",
-          "Sitecore.Kernel.Portable": "10.4.0",
-          "Sitecore.Logging": "10.4.0",
-          "Sitecore.Logging.Client": "10.4.0",
-          "Sitecore.Nexus.Consumption": "1.6.0",
-          "Sitecore.Screenshots": "10.4.0"
+          "Sitecore.Kernel.Portable": "10.3.1",
+          "Sitecore.Logging": "10.3.1",
+          "Sitecore.Logging.Client": "10.3.1",
+          "Sitecore.Nexus.Consumption": "1.5.0"
         }
+      },
+      "System.Security.Cryptography.Xml": {
+        "type": "Direct",
+        "requested": "[8.0.2, 8.0.2]",
+        "resolved": "8.0.2",
+        "contentHash": "aDM/wm0ZGEZ6ZYJLzgqjp2FZdHbDHh6/OmpGfb7AdZ105zYmPn/83JRU2xLIbwgoNz9U1SLUTJN0v5th3qmvjA=="
       },
       "protobuf-net": {
         "type": "Transitive",
-        "resolved": "2.4.6",
-        "contentHash": "fDYwwGw9yCERTkIzxhmiGmD3i5nB5Pw4roZ9Pi+MPNbNiNbGAA9mVrSSbTjAMNQEBXtwK/HZ6btrO2YwYsVsMw=="
+        "resolved": "2.0.0.668",
+        "contentHash": "Lgj+Kf1+RV0utKxX9u1WEcymPGrbWrj/AwFmFADFLLa/LLdc1ji2MIGcecFRAGUu6UO8BRbdjZAIYWvLlN1B/A=="
       },
       "Sitecore.Data.ResourceItems.Abstractions": {
         "type": "Transitive",
-        "resolved": "10.4.0",
-        "contentHash": "RWa7QPHW+X81Hic0DOhMVvHg/HCsfPvbBvUpRuEN+Ow9lG0KiMBSlHSBDw5z0cBiYh6eLxZeH3VK5kfaK0itzw=="
+        "resolved": "10.3.1",
+        "contentHash": "wzksh6fjoaFMCZ61yCsTNrcg0eDiPe/InPjRmCrX+824i2PIJEEU0BwAaT3NhmqxPhZiqpueejDBZjv8wvrD1g=="
       },
       "Sitecore.Data.ResourceItems.ProtobufNet": {
         "type": "Transitive",
-        "resolved": "10.4.0",
-        "contentHash": "ULUmUkB4FQdiAvRE+9Ph8eF5jqnLEOSj3Ag0RWIdAm1CWKJ0kmHaVQFUB/bovZ/tdM6w5SDWZ72pML980MRY7A==",
+        "resolved": "10.3.1",
+        "contentHash": "+GNQqmWe55jQTfdfSuT+M2ooB9uAGPHE0kNht1qkKM2Q6kNpjDhW/VF8gVFihsx3ub5w5id+BCuLcKFZ7WnP9w==",
         "dependencies": {
-          "Sitecore.Data.ResourceItems.Abstractions": "10.4.0",
-          "protobuf-net": "2.4.6"
+          "Sitecore.Data.ResourceItems.Abstractions": "10.3.1",
+          "protobuf-net": "2.0.0.668"
         }
       },
       "Sitecore.Framework.Conditions": {
@@ -66,26 +71,26 @@
       },
       "Sitecore.Kernel.Portable": {
         "type": "Transitive",
-        "resolved": "10.4.0",
-        "contentHash": "1liGAQ3cbJK80ctftbj3IBi/mCrv02qkJi2g64IkxatD+KcS904URXda56FzxokJUuoBGO5XS1Am90liBGcYRA=="
+        "resolved": "10.3.1",
+        "contentHash": "qq6lLoZ09Rb4YSemuJCG/fTdtFJC2tklNtIs4595OBI8mhCCsYL6s9W7pVdPR8YQ0uZWTcMHW4YBebe9kOZ3Ug=="
       },
       "Sitecore.Logging": {
         "type": "Transitive",
-        "resolved": "10.4.0",
-        "contentHash": "VF3C1lg9Yp3B9dWIOCd9CSzKenFjyTy1Z2xVxzKMVJNFNSFpgthPjftuxxzEJUaeHUBJfPFGwxAHHyTd4jBcRA=="
+        "resolved": "10.3.1",
+        "contentHash": "qurXNF/oD2RmXkbe1EHiWDTTkRZnEGfPcoh4Ir5l60v+DroEiWAhs0tRg2HP3zK3J5lEuyxeLz5amg+2rbNyow=="
       },
       "Sitecore.Logging.Client": {
         "type": "Transitive",
-        "resolved": "10.4.0",
-        "contentHash": "nlt6iABWcmyAUYdrJyHydvDCYCZktRddhLGlwUAZf1zGXSGJ977yrfwiZWxjo1bGUOhZ8p5nOFsqZsOKPNXP3A==",
+        "resolved": "10.3.1",
+        "contentHash": "YgeiOg2T0GmjWzRr6t8M39r7gbYrIVo0vq3+DhSeuiYJjxNseRTgmetRIJdvMuPke0DnSTMeSBP/pSBdT6f1Pg==",
         "dependencies": {
-          "Sitecore.Logging": "10.4.0"
+          "Sitecore.Logging": "10.3.1"
         }
       },
       "Sitecore.Nexus.Consumption": {
         "type": "Transitive",
-        "resolved": "1.6.0",
-        "contentHash": "WACrTQG+E+f2yK1JU8iyI9R46ttBi+QFWewEBC5VFPxxmhg59MQWP43CoiXDIWABLEYOfuaftZyaZ4i9tPYgWA==",
+        "resolved": "1.5.0",
+        "contentHash": "e3SK/f4ggy92lN1JBBXScppBKL0WQkpWuFVK/qJqu33NK/Rv/SaLzbf/v3sOm2+/xfy4BDvoz6z7JEU4QC0fVw==",
         "dependencies": {
           "Sitecore.Nexus.Licensing": "2.0.6"
         }
@@ -97,101 +102,11 @@
         "dependencies": {
           "System.Security.Cryptography.Xml": "4.5.0"
         }
-      },
-      "Sitecore.Screenshots": {
-        "type": "Transitive",
-        "resolved": "10.4.0",
-        "contentHash": "gTsSQqVIck9rvpnpPI+iaf7lHK0f+i77hc05AphpWR9BiQ8rcJIA2pbySzEWW90jdMxL3inXHLr2j+/HQoR3rQ=="
-      },
-      "System.Security.AccessControl": {
-        "type": "Transitive",
-        "resolved": "4.5.0",
-        "contentHash": "vW8Eoq0TMyz5vAG/6ce483x/CP83fgm4SJe5P8Tb1tZaobcvPrbMEL7rhH1DRdrYbbb6F0vq3OlzmK0Pkwks5A==",
-        "dependencies": {
-          "System.Security.Principal.Windows": "4.5.0"
-        }
-      },
-      "System.Security.Cryptography.Xml": {
-        "type": "Transitive",
-        "resolved": "4.5.0",
-        "contentHash": "i2Jn6rGXR63J0zIklImGRkDIJL4b1NfPSEbIVHBlqoIb12lfXIigCbDRpDmIEzwSo/v1U5y/rYJdzZYSyCWxvg==",
-        "dependencies": {
-          "System.Security.Permissions": "4.5.0"
-        }
-      },
-      "System.Security.Permissions": {
-        "type": "Transitive",
-        "resolved": "4.5.0",
-        "contentHash": "9gdyuARhUR7H+p5CjyUB/zPk7/Xut3wUSP8NJQB6iZr8L3XUXTMdoLeVAg9N4rqF8oIpE7MpdqHdDHQ7XgJe0g==",
-        "dependencies": {
-          "System.Security.AccessControl": "4.5.0"
-        }
-      },
-      "System.Security.Principal.Windows": {
-        "type": "Transitive",
-        "resolved": "4.5.0",
-        "contentHash": "U77HfRXlZlOeIXd//Yoj6Jnk8AXlbeisf1oq1os+hxOGVnuG+lGSfGqTwTZBoORFF6j/0q7HXIl8cqwQ9aUGqQ=="
       }
     },
-    ".NETFramework,Version=v4.8/win": {
-      "System.Security.AccessControl": {
-        "type": "Transitive",
-        "resolved": "4.5.0",
-        "contentHash": "vW8Eoq0TMyz5vAG/6ce483x/CP83fgm4SJe5P8Tb1tZaobcvPrbMEL7rhH1DRdrYbbb6F0vq3OlzmK0Pkwks5A==",
-        "dependencies": {
-          "System.Security.Principal.Windows": "4.5.0"
-        }
-      },
-      "System.Security.Principal.Windows": {
-        "type": "Transitive",
-        "resolved": "4.5.0",
-        "contentHash": "U77HfRXlZlOeIXd//Yoj6Jnk8AXlbeisf1oq1os+hxOGVnuG+lGSfGqTwTZBoORFF6j/0q7HXIl8cqwQ9aUGqQ=="
-      }
-    },
-    ".NETFramework,Version=v4.8/win-arm64": {
-      "System.Security.AccessControl": {
-        "type": "Transitive",
-        "resolved": "4.5.0",
-        "contentHash": "vW8Eoq0TMyz5vAG/6ce483x/CP83fgm4SJe5P8Tb1tZaobcvPrbMEL7rhH1DRdrYbbb6F0vq3OlzmK0Pkwks5A==",
-        "dependencies": {
-          "System.Security.Principal.Windows": "4.5.0"
-        }
-      },
-      "System.Security.Principal.Windows": {
-        "type": "Transitive",
-        "resolved": "4.5.0",
-        "contentHash": "U77HfRXlZlOeIXd//Yoj6Jnk8AXlbeisf1oq1os+hxOGVnuG+lGSfGqTwTZBoORFF6j/0q7HXIl8cqwQ9aUGqQ=="
-      }
-    },
-    ".NETFramework,Version=v4.8/win-x64": {
-      "System.Security.AccessControl": {
-        "type": "Transitive",
-        "resolved": "4.5.0",
-        "contentHash": "vW8Eoq0TMyz5vAG/6ce483x/CP83fgm4SJe5P8Tb1tZaobcvPrbMEL7rhH1DRdrYbbb6F0vq3OlzmK0Pkwks5A==",
-        "dependencies": {
-          "System.Security.Principal.Windows": "4.5.0"
-        }
-      },
-      "System.Security.Principal.Windows": {
-        "type": "Transitive",
-        "resolved": "4.5.0",
-        "contentHash": "U77HfRXlZlOeIXd//Yoj6Jnk8AXlbeisf1oq1os+hxOGVnuG+lGSfGqTwTZBoORFF6j/0q7HXIl8cqwQ9aUGqQ=="
-      }
-    },
-    ".NETFramework,Version=v4.8/win-x86": {
-      "System.Security.AccessControl": {
-        "type": "Transitive",
-        "resolved": "4.5.0",
-        "contentHash": "vW8Eoq0TMyz5vAG/6ce483x/CP83fgm4SJe5P8Tb1tZaobcvPrbMEL7rhH1DRdrYbbb6F0vq3OlzmK0Pkwks5A==",
-        "dependencies": {
-          "System.Security.Principal.Windows": "4.5.0"
-        }
-      },
-      "System.Security.Principal.Windows": {
-        "type": "Transitive",
-        "resolved": "4.5.0",
-        "contentHash": "U77HfRXlZlOeIXd//Yoj6Jnk8AXlbeisf1oq1os+hxOGVnuG+lGSfGqTwTZBoORFF6j/0q7HXIl8cqwQ9aUGqQ=="
-      }
-    }
+    ".NETFramework,Version=v4.8/win": {},
+    ".NETFramework,Version=v4.8/win-arm64": {},
+    ".NETFramework,Version=v4.8/win-x64": {},
+    ".NETFramework,Version=v4.8/win-x86": {}
   }
 }

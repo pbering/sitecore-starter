@@ -5,11 +5,12 @@
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
   <PropertyGroup>
-    <PlatformVersion>[10.4.0]</PlatformVersion>
+    <PlatformVersion>[10.3.1]</PlatformVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="Sitecore.Assemblies.Platform" Version="$(PlatformVersion)" />
     <PackageVersion Include="Sitecore.Kernel" Version="$(PlatformVersion)" />
     <PackageVersion Include="Sitecore.Mvc" Version="$(PlatformVersion)" />
+    <PackageVersion Include="System.Security.Cryptography.Xml" Version="[8.0.2]" />
   </ItemGroup>
 </Project>

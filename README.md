@@ -17,6 +17,10 @@ Opinionated starter kits (as in copy-and-customize) with some batteries included
 
 ## Changelog
 
+### 2024-12-02
+
+- [Fixed] Updated 'System.Security.Cryptography.Xml' that had a known moderate severity vulnerability
+
 ### 2024-10-29
 
 - [Changed] Updated Sitecore CLI to latest v6.0.23
